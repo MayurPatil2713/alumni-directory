@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Alumni;
 
 class AlumniController extends Controller
 {
     public function index()
     {
-        return view('alumni');
+        $alumni = Alumni::all();
+
+        return view('alumni', [
+            'alumni' => $alumni,
+        ]);
     }
 }
